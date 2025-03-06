@@ -1,0 +1,25 @@
+name: Deploy a Producció via FTP
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codi
+        uses: actions/checkout@v4
+
+      - name: Desplegar via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ ftpupload.net }}
+          username: ${{ b7_37426837 }}
+          password: ${{ raulhernandezgarcia2024 }}
+          local-dir: ./.github/workflows # Especifica la carpeta local que vols pujar
+          server-dir: /ruta/al/servidor/ # Ruta al servidor de producció
