@@ -1,0 +1,2 @@
+FROM nginx
+COPY workflows /usr/share/nginx/html
