@@ -23,6 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access i
+      - uses: actions/checkout@v4
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v5
         with:
